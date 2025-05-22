@@ -31,7 +31,7 @@ class Teacher implements TeacherInterface {
     }
 
     getCoffeeBreak(): string {
-        return 'Caannot have a break'
+        return 'Cannot have a break'
     }
 
     workTeacherTasks(): string {
@@ -48,6 +48,17 @@ function createEmployee(salary: number | string): SchoolEmployee {
     return new Director()
 }
 
-console.log(createEmployee(200));
-console.log(createEmployee(1000));
-console.log(createEmployee('$500'));
+function isDirector(employee: SchoolEmployee): boolean {
+    return employee instanceof Director
+}
+
+function executeWork(employee: SchoolEmployee) {
+    if (isDirector(employee)) {
+        (employee as Director).workDirectorTasks()
+    } else {
+        (employee as Teacher).workTeacherTasks()
+    }
+}
+
+console.log(executeWork(createEmployee(200)))
+console.log(executeWork(createEmployee(1000)))
