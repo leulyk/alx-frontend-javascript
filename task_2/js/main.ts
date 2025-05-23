@@ -65,3 +65,9 @@ function executeWork(employee: SchoolEmployee) {
 // console.log(createEmployee('$500'));
 // executeWork(createEmployee(200));
 // executeWork(createEmployee(1000));
+
+type todayClass = 'Math' | 'History'
+
+function teachClass(cls: todayClass): string {
+    return cls == 'History' ? 'Teaching History' : 'Teaching Math'
+}
